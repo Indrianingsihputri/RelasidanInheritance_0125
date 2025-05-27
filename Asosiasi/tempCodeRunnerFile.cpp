@@ -3,6 +3,7 @@
 using namespace std;
 
 class dokter;
+
 class pasien { //Asosiasi
     public:
         string nama;
@@ -22,44 +23,44 @@ class pasien { //Asosiasi
 };
 
 class dokter { //Asosiasi
-public:
-    string nama;
-    vector<pasien*> daftar_pasien;
+    public:
+        string nama;
+        vector<pasien*> daftar_pasien;
 
-    dokter(string pNama) : nama(pNama) {
-        cout << "Dokter \"" << nama << "\" ada\n";
-    }
+        dokter(string pNama) : nama(pNama) {
+            cout << "Dokter \"" << nama << "\" ada\n";
+        }
 
-    ~dokter() {
-        cout << "Dokter \"" << nama 
-        << "\" tidak ada\n";
-    }
+        ~dokter() {
+            cout << "Dokter \"" << nama 
+            << "\" tidak ada\n";
+        }
 
-    void tambahPasien(pasien*);
-    void cetakPasien();
+        void tambahPasien(pasien*);
+        void cetakPasien();
 };
 
-void pasien::tambahDokter(dokter* pDokter) {
-    daftar_dokter.push_back(pDokter);
-    
-}
+void pasien
 
 void pasien::cetakDokter() {
-    cout << "daftar dokter yang menangani pasien \"" << this->nama << "\":\n";
-    for (auto& a : daftar_dokter) { // auto digunakan dalam perulangan for untuk secara otomatis menentukan tipe data dari elemen yang diitera
+    cout << "daftar dokter yang menangani pasien \"" 
+    << this->nama << "\":\n";
+    for (auto& a : daftar_dokter) {
         cout << a->nama << "\n";
     }
 
     cout << endl;
+    
 }
 
 void dokter::tambahPasien(pasien* pPasien) {
     daftar_pasien.push_back(pPasien);
-    pPasien->tambahDokter(this);
+    
 }
 
 void dokter::cetakPasien() {
-    cout << "daftar pasien yang ditangani dokter \"" << this->nama << "\":\n";
+    cout << "daftar pasien yang ditangani dokter \"" 
+    << this->nama << "\":\n";
     for (auto& a : daftar_pasien) {
         cout << a->nama << "\n";
     }
